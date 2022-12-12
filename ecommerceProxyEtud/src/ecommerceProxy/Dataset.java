@@ -8,6 +8,7 @@ public class Dataset {
 
 	private Collection<Transaction> trans;
 	private Article[] articles;
+	Instance inst = Instance.instance1;
 
 	private static Dataset dataset;
 
@@ -55,6 +56,27 @@ public class Dataset {
 	public ArrayList<Motif> motifParser() throws IOException {
 		
 		//TODO
+	}
+
+	/////////////////////////////////// INSTANCES
+	/////////////////////////////////// //////////////////////////////////////////////////
+	enum Instance {
+		toy("ecommerceProxy/data/toy.txt", "ecommerceProxy/data/toymotifs.txt", 0.5f, 5),
+		instance1("ecommerceProxy/data/ecommerce.txt", "ecommerceProxy/data/motifs1.txt", 0.5f, 130),
+		instance2("ecommerceProxy/data/ecommerce.txt", "ecommerceProxy/data/motifs2.txt", 0.5f, 130),;
+
+		final String datasetPath;
+		final String motifsPath;
+		final float seuil;
+		final int nbArticles;
+
+		Instance(String datasetPath, String motifsPath, float seuil, int nbArticles) {
+			this.datasetPath = datasetPath;
+			this.motifsPath = motifsPath;
+			this.seuil = seuil;
+			this.nbArticles = nbArticles;
+		}
+
 	}
 
 
